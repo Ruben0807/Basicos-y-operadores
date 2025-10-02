@@ -1,0 +1,176 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on:
+      group: PRG1
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Apartado030103 - Ejercicio01 - Output
+      id: apartado030103-ejercicio01-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio01 - Output
+        setup-command: ''
+        max-score: 1
+        command: ant
+        input: |-
+          030103
+          01
+        expected-output: ".*16\\.0.*"
+        comparison-method: regex
+        timeout: 10
+    - name: Apartado030103 - Ejercicio01 - Code
+      id: apartado030103-ejercicio01-code
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio01 - Code
+        setup-command: ''
+        max-score: 1
+        command: awk '/ejercicio01/','/}/' src/es/unileon/prg/tema5/Apartado030103.java
+          | grep 'Math.sqrt'
+        timeout: 10
+    - name: Apartado030103 - Ejercicio02 - Output
+      id: apartado030103-ejercicio02-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio02 - Output
+        setup-command: ''
+        max-score: 1
+        command: ant
+        input: |-
+          030103
+          02
+        expected-output: ".*729\\.0.*"
+        comparison-method: regex
+        timeout: 10
+    - name: Apartado030103 - Ejercicio02 - Code
+      id: apartado030103-ejercicio02-code
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio02 - Code
+        setup-command: ''
+        max-score: 1
+        command: awk '/ejercicio02/','/}/' src/es/unileon/prg/tema5/Apartado030103.java
+          | grep 'Math.pow'
+        timeout: 10
+    - name: Apartado030103 - Ejercicio03 - Code
+      id: apartado030103-ejercicio03-code
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio03 - Code
+        setup-command: ''
+        max-score: 1
+        command: awk '/ejercicio03/','/}/' src/es/unileon/prg/tema5/Apartado030103.java
+          | grep 'Math.random()'
+        timeout: 10
+    - name: Apartado030103 - Ejercicio04 - Output
+      id: apartado030103-ejercicio04-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio04 - Output
+        setup-command: ''
+        max-score: 1
+        command: ant
+        input: |-
+          030103
+          04
+        expected-output: ".*314\\.15.*"
+        comparison-method: regex
+        timeout: 10
+    - name: Apartado030103 - Ejercicio04 - Code
+      id: apartado030103-ejercicio04-code
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Apartado030103 - Ejercicio04 - Code
+        setup-command: ''
+        max-score: 1
+        command: awk '/ejercicio04/','/}/' src/es/unileon/prg/tema5/Apartado030103.java
+          | grep 'Math.PI'
+        timeout: 10
+    - name: Apartado030104 - Ejercicio02 - Output
+      id: apartado030104-ejercicio02-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Apartado030104 - Ejercicio02 - Output
+        setup-command: ''
+        max-score: 1
+        command: ant
+        input: |-
+          030104
+          02
+        expected-output: ".*-30536.*"
+        comparison-method: regex
+        timeout: 10
+    - name: Apartado030104 - Ejercicio02 - Code
+      id: apartado030104-ejercicio02-code
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Apartado030104 - Ejercicio02 - Code
+        setup-command: ''
+        max-score: 1
+        command: awk '/ejercicio02/','/}/' src/es/unileon/prg/tema5/Apartado030104.java 
+          | grep '(.*).*varLong;'
+        timeout: 10
+    - name: Apartado030104 - Ejercicio03 - Output
+      id: apartado030104-ejercicio03-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Apartado030104 - Ejercicio03 - Output
+        setup-command: ''
+        max-score: 1
+        command: ant
+        input: |-
+          030104
+          03
+        expected-output: ".*123\\.09.*"
+        comparison-method: regex
+        timeout: 10
+    - name: Apartado030104 - Ejercicio03 - Code
+      id: apartado030104-ejercicio03-code
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Apartado030104 - Ejercicio03 - Code
+        setup-command: ''
+        max-score: 1
+        command: awk '/ejercicio03/','/}/' src/es/unileon/prg/tema5/Apartado030104.java 
+          | grep '(.*).*varFloat;'
+        timeout: 10
+    - name: Apartado030201 - Ejercicio01 - Output
+      id: apartado030201-ejercicio01-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Apartado030201 - Ejercicio01 - Output
+        setup-command: ''
+        max-score: 1
+        command: ant
+        input: |-
+          030201
+          01
+        expected-output: ".*100.*"
+        comparison-method: regex
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        APARTADO030103-EJERCICIO01-OUTPUT_RESULTS: "${{steps.apartado030103-ejercicio01-output.outputs.result}}"
+        APARTADO030103-EJERCICIO01-CODE_RESULTS: "${{steps.apartado030103-ejercicio01-code.outputs.result}}"
+        APARTADO030103-EJERCICIO02-OUTPUT_RESULTS: "${{steps.apartado030103-ejercicio02-output.outputs.result}}"
+        APARTADO030103-EJERCICIO02-CODE_RESULTS: "${{steps.apartado030103-ejercicio02-code.outputs.result}}"
+        APARTADO030103-EJERCICIO03-CODE_RESULTS: "${{steps.apartado030103-ejercicio03-code.outputs.result}}"
+        APARTADO030103-EJERCICIO04-OUTPUT_RESULTS: "${{steps.apartado030103-ejercicio04-output.outputs.result}}"
+        APARTADO030103-EJERCICIO04-CODE_RESULTS: "${{steps.apartado030103-ejercicio04-code.outputs.result}}"
+        APARTADO030104-EJERCICIO02-OUTPUT_RESULTS: "${{steps.apartado030104-ejercicio02-output.outputs.result}}"
+        APARTADO030104-EJERCICIO02-CODE_RESULTS: "${{steps.apartado030104-ejercicio02-code.outputs.result}}"
+        APARTADO030104-EJERCICIO03-OUTPUT_RESULTS: "${{steps.apartado030104-ejercicio03-output.outputs.result}}"
+        APARTADO030104-EJERCICIO03-CODE_RESULTS: "${{steps.apartado030104-ejercicio03-code.outputs.result}}"
+      with:
+        runners: apartado030103-ejercicio01-output,apartado030103-ejercicio01-code,apartado030103-ejercicio02-output,apartado030103-ejercicio02-code,apartado030103-ejercicio03-code,apartado030103-ejercicio04-output,apartado030103-ejercicio04-code,apartado030104-ejercicio02-output,apartado030104-ejercicio02-code,apartado030104-ejercicio03-output,apartado030104-ejercicio03-code
