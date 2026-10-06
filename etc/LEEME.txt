@@ -1,9 +1,26 @@
 Practica P-VAR
 
-Alumno:
+Alumno: Rubén
 
-Horas dedicadas:
+Horas dedicadas: Entre 5 y 6 horas.
 
-Problemas surgidos al realizar la practica:
+Problemas surgidos al realizar la practica: 
+-No me ejecuta el PruebaPractica en Visual Studio code (Al final se pudo arreglar y ya funcionaba).
 
 Respuestas a la preguntas:
+
+-Apartado 030101, ejercicio 04:
+Al ejecutar el programa (en mi caso en la terminal ya que no me funciona en visual studio) la resta entre 2.8 y 1.5 otorga el valor 1.2999999999999998 en vez del esperado 1.3. Esto se puede deber a como almacena el ordenador los números, ya que no lo hace en formato decimal sino en binario, y al hacer el cambio seguramente algún numero que aparece entero en realidad esta aproximado o redondeado del valor que tiene en realidad, por eso no nos da 1.3 sino 1.299999... .
+
+-Apartado 030101, ejercicio 05:
+En este ejercicio también se resta 2.8 y 1.5, y esta vez si da 1.3 exacto. Esto se debe al uso de BigDecimal que establece el valor de la valor1 exactamente como 2.8 (sin ser una aproximación del ordenador) y lo mismo ocurre con la valor2, debido a que esta clase BigDecimasl almacena los datos en forma decimal y no en binario.
+
+-Apartado 030104, ejercicio 02:
+En este ejercicio nos piden hacer las conversiones de una variable varLong=35000 a otras variables (int, byte y short). Al hacerlas y ejecutar el programa en PruebaPractica las conversiones nos han dado: en byte, varByte=-72. Esto se debe a que la variable Byte solo acepta datos desde -128 hasta 127, por lo que al hacer el cambio de la variable Long nos da el valor de -72. En short, varShort=-30536. Esto se debe a lo mismo que en la variable Byte solo que la variable short admite un rango desde -32768 hasta 32767, al hacer la conversión de la variable Long lo que "sobra" (35000-32767=2233) esas unidades se restan al limite de la variable short empezando desde el negativo (-32678-(-2233)=-30536). En int, varInt=35000. Esto ocurre porque la variable inte permite datos desde -2147483648 hasta 2147483647, por lo que el valor Long de 35000 entra en ese rango.
+
+-Apartado 030104, ejercicio 04:
+Errores encontrados: 
+1- Los valores de byte b=130, short s=32770 e int i=2147483650 superan el rango permitido de cada variable: byte b=127, short s=32767 e int i=2147483647.
+2- En la variable int al final se declara con el símbolo l, el cual solo se utiliza para determinar variables tipo Long.
+3- La variable float f=1.3e22 no viene especificada al final con una f, que se usa para determinar la variable float. La "f" puede ser minúscula (f) o mayúscula (F).
+4- Al cambiar los datos de dGigante, dNormal, y dMinimo a float se producen algunos errores: con dGigante al hacer la conversión de double a float excede los datos que puede almacenar el float (al ejecutar la prueba da Infinity), en dNormal no ocurre ningún error al entrar dentro del rango de la variable, y en dMinimo pasa lo mismo que en dGigante, excede los datos que pueden ser almacenados por la variable float (al ejecutar la prueba da 0).

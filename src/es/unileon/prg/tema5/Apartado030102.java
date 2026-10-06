@@ -28,9 +28,9 @@ public class Apartado030102 extends Apartado {
 
 		// Inicio modificacion
 		final int CONST=128;
-		int op1;
-		int op2;
-		int resultado;
+		int op1= ++op1*12;
+		int op2= --op1+CONST;
+		int resultado= op2%op1;
 		//Preincrementa op1 y multiplicalo por 12
 		//El valor de op2 es la suma op1 predecrementado con CONST
 		//Halla el resto de dividir op2 entre op1 y guardalo en resultado
@@ -49,14 +49,15 @@ public class Apartado030102 extends Apartado {
 		cabecera("02", "Utilizacion de operadores logicos");
 
 		// Inicio modificacion
-		int edad;
-		int numeroPartes;
-		boolean deportivo;
+		int edad=50; 
+		int numeroPartes=2;
+		boolean deportivo=true;
 		boolean rebaja;
+		rebaja = ((edad>=40 && edad<=60)&&(numeroPartes<3)) || ((edad>20) && (numeroPartes<=1) && (deportivo==false));
 		// rebaja = expresion booleana
-        /* DESCOMENTAR
+        
 		System.out.println("Rebaja = " + rebaja);
-		*/
+		
 		// Fin modificacion
 	}
 
@@ -72,11 +73,14 @@ public class Apartado030102 extends Apartado {
 
 		// Inicio modificacion
 		int segundos, horas, minutos;
+		horas=56000/3600;
+		minutos=(56000%3600)/60;
+		segundos=56000-horas*3600-minutos*60;
 		int totalSegundos=56000;
 		// Realizacion de calculos
-         /* DESCOMENTAR
+
 		System.out.println(horas+"h "+minutos+"m "+segundos+"s ");
-		*/
+
 		// Fin modificacion
 	}
 }
