@@ -50,8 +50,8 @@ public class Alumno {
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
-	 */
-	/*
+	*/
+	
 	public String toString() {
 		StringBuffer salida = new StringBuffer();
 		
@@ -61,5 +61,5 @@ public class Alumno {
 		
 		return salida.toString();
 	}
-	*/
+	
 }
