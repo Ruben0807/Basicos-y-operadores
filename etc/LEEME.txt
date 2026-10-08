@@ -2,7 +2,7 @@ Practica P-VAR
 
 Alumno: Rubén
 
-Horas dedicadas: Entre 5 y 6 horas.
+Horas dedicadas: Entre 5 y 6 horas (práctica 5)/ Entre 2 y 3 horas (práctica 6)
 
 Problemas surgidos al realizar la practica: 
 -No me ejecuta el PruebaPractica en Visual Studio code (Al final se pudo arreglar y ya funcionaba).
@@ -24,3 +24,12 @@ Errores encontrados:
 2- En la variable int al final se declara con el símbolo l, el cual solo se utiliza para determinar variables tipo Long.
 3- La variable float f=1.3e22 no viene especificada al final con una f, que se usa para determinar la variable float. La "f" puede ser minúscula (f) o mayúscula (F).
 4- Al cambiar los datos de dGigante, dNormal, y dMinimo a float se producen algunos errores: con dGigante al hacer la conversión de double a float excede los datos que puede almacenar el float (al ejecutar la prueba da Infinity), en dNormal no ocurre ningún error al entrar dentro del rango de la variable, y en dMinimo pasa lo mismo que en dGigante, excede los datos que pueden ser almacenados por la variable float (al ejecutar la prueba da 0).
+
+-Apartado 030202, ejercicio 01:
+La diferencia entre length() y capacity() está en el dato que tienen asociado para la variable. El length() muestra los caracteres ocupados por la  cadena (StringBuffer) mientras que el capacity() muestra toda la capacidad de caracteres que puede contener la cadena.
+
+-Apartado 030203, ejercicio 01:
+Al compilar y ejecutar el ejercicio sin descomentar en Alumno.java nos da como resultado en alumno el código bash (es.unileon.prg.tema5.Alumno@74a14482). Esto se debe a que el propio java al hacer un System.out.println() ejecuta el método toString() pero como esta comentado ejecuta el de la clase Object (el codigo bash). Después de descomentar la clase Alumno.java al ejecutar el ejercicio ya nos aparece el nombre como hemos declarado en el ejercicio con la clase Alumno.java (NIU: 1000011111 Nombre: Pepe Nota: 6.0). Esto se explica por lo ya comentado anteriormente, al descomentar la clase Alumno.java, al hacer el System.out.println(), se ejecuta automáticamente el método toString().
+
+
+
