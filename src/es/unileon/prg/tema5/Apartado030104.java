@@ -50,7 +50,7 @@ package es.unileon.prg.tema5;
          varLong   = varInt;//Correcto
          varLong   = 9223372036854775807L;//Correcto
          varFloat  = varLong;//Correcto
-         varByte   = varShort;//Incorrecto, Byte alamcena solo 8bits y Short 16bits.
+         varByte   = varShort;//Incorrecto, Byte alamcena solo 8bits y Short 16bits. 
          varShort  = varInt;//Incorrecto, Short alamcena solo 16bits e Int 32bits.
       
       }
